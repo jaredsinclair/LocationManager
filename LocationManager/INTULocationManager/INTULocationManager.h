@@ -1,7 +1,7 @@
 //
 //  INTULocationManager.h
 //
-//  Copyright (c) 2014-2015 Intuit Inc.
+//  Copyright (c) 2014-2017 Intuit Inc.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining
 //  a copy of this software and associated documentation files (the
@@ -32,7 +32,7 @@ FOUNDATION_EXPORT double INTULocationManagerVersionNumber;
 FOUNDATION_EXPORT const unsigned char INTULocationManagerVersionString[];
 
 
-__INTU_ASSUME_NONNULL_BEGIN
+NS_ASSUME_NONNULL_BEGIN
 
 /**
  An abstraction around CLLocationManager that provides a block-based asynchronous API for obtaining the device's location.
@@ -145,6 +145,11 @@ __INTU_ASSUME_NONNULL_BEGIN
 /** Immediately cancels the heading subscription request with the given requestID (if it exists), without executing the original request block. */
 - (void)cancelHeadingRequest:(INTUHeadingRequestID)requestID;
 
+#pragma mark - Additions
+
+/** It is possible to force enable background location fetch even if your set any kind of Authorizations */
+- (void)setBackgroundLocationUpdate:(BOOL) enabled;
+
 @end
 
-__INTU_ASSUME_NONNULL_END
+NS_ASSUME_NONNULL_END
